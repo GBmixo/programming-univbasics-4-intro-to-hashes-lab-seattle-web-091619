@@ -24,13 +24,13 @@ def read_from_hash(hash, key)
 end
 
 def update_counting_hash(hash, key)
-  if hash.member?(key) == true
-    hash[key] += 1
-  end
-  
-  if hash.member?(key) == false
-    hash[key] = 1
-  end
+  hash.collect {|h|
+    if h.member?(key) == true
+      h[key] += 1
+    else
+      h[key] = 1
+    end
+  }
   p hash
 end
 
